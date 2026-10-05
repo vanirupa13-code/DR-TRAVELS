@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Book Your Trip | DR Travels</title>
+</head>
+
+<body>
+
+    <section class="booking">
+
+        <div class="booking-content">
+
+            <p class="section-tag">BOOK YOUR TRIP</p>
+
+            <h2>
+                Plan Your <span>Journey.</span>
+            </h2>
+
+            <p>
+                Enter your travel details and send us your
+                booking request.
+            </p>
+
+        </div>
+
+        <form class="booking-form">
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="Enter phone number">
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Trip Type</label>
+
+                    <select>
+                        <option>Select trip type</option>
+                        <option>Local Trip</option>
+                        <option>Outstation Trip</option>
+                        <option>Family Trip</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Passengers</label>
+
+                    <select>
+                        <option>Select passengers</option>
+                        <option>1 - 2</option>
+                        <option>3 - 4</option>
+                        <option>5 - 6</option>
+                        <option>7 - 8</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Travel Date</label>
+                    <input type="date">
+                </div>
+
+                <div class="form-group">
+                    <label>Pickup Location</label>
+                    <input type="text" placeholder="Enter pickup location">
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Destination</label>
+                <input type="text" placeholder="Enter destination">
+            </div>
+
+            <button type="submit" class="booking-btn">
+                Send Booking Request
+            </button>
+
+        </form>
+
+        <div id="booking-success" class="booking-success">
+
+    <h3>Booking Request Ready!</h3>
+
+    <p>
+        Your booking details are ready to send on WhatsApp.
+    </p>
+
+    <a href="index.html" class="home-btn">
+        Go to Home →
+    </a>
+
+   </div>
+
+</section>
+
+
+    <script>
+
+const bookingForm = document.querySelector(".booking-form");
+
+bookingForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.querySelector(
+        'input[placeholder="Enter your name"]'
+    ).value;
+
+    const phone = document.querySelector(
+        'input[placeholder="Enter phone number"]'
+    ).value;
+
+    const selects = document.querySelectorAll("select");
+
+    const tripType = selects[0].value;
+    const passengers = selects[1].value;
+
+    const date = document.querySelector(
+        'input[type="date"]'
+    ).value;
+
+    const pickup = document.querySelector(
+        'input[placeholder="Enter pickup location"]'
+    ).value;
+
+    const destination = document.querySelector(
+        'input[placeholder="Enter destination"]'
+    ).value;
+
+    const message =
+`Hello DR TRAVELS,
+
+I would like to book a trip.
+
+Name: ${name}
+Phone: ${phone}
+Trip Type: ${tripType}
+Passengers: ${passengers}
+Travel Date: ${date}
+Pickup Location: ${pickup}
+Destination: ${destination}
+
+Thank you.`;
+
+    const whatsappURL =
+        "https://wa.me/919948394483?text=" +
+        encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+
+    bookingForm.style.display = "none";
+
+    document.querySelector("#booking-success").style.display = "block";
+
+});
+
+</script> 
+</body>
+
+</html>
