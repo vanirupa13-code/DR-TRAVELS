@@ -1478,3 +1478,27 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* MOBILE MENU */
+.menu-btn {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu-btn {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+        color: #173f4f;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+}
